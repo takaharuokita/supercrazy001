@@ -1,238 +1,224 @@
-const displacementSlider = function(opts) {
+var slideshowDuration = 4000;
+var slideshow = $('.main-content .slideshow');
 
-    let vertex = `
-          varying vec2 vUv;
-          void main() {
-            vUv = uv;
-            gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
-          }
-      `;
+function slideshowSwitch(slideshow, index, auto) {
+    if (slideshow.data('wait')) return;
 
-    let fragment = `
-          
-          varying vec2 vUv;
-  
-          uniform sampler2D currentImage;
-          uniform sampler2D nextImage;
-  
-          uniform float dispFactor;
-  
-          void main() {
-  
-              vec2 uv = vUv;
-              vec4 _currentImage;
-              vec4 _nextImage;
-              float intensity = 0.3;
-  
-              vec4 orig1 = texture2D(currentImage, uv);
-              vec4 orig2 = texture2D(nextImage, uv);
-              
-              _currentImage = texture2D(currentImage, vec2(uv.x, uv.y + dispFactor * (orig2 * intensity)));
-  
-              _nextImage = texture2D(nextImage, vec2(uv.x, uv.y + (1.0 - dispFactor) * (orig1 * intensity)));
-  
-              vec4 finalTexture = mix(_currentImage, _nextImage, dispFactor);
-  
-              gl_FragColor = finalTexture;
-  
-          }
-      `;
+    var slides = slideshow.find('.slide');
+    var pages = slideshow.find('.pagination');
+    var activeSlide = slides.filter('.is-active');
+    var activeSlideImage = activeSlide.find('.image-container');
+    var newSlide = slides.eq(index);
+    var newSlideImage = newSlide.find('.image-container');
+    var newSlideContent = newSlide.find('.slide-content');
+    var newSlideElements = newSlide.find('.caption > *');
+    if (newSlide.is(activeSlide)) return;
 
-    let images = opts.images,
-        image, sliderImages = [];;
-    let canvasWidth = images[0].clientWidth;
-    let canvasHeight = images[0].clientHeight;
-    let parent = opts.parent;
-    let renderWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    let renderHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
-    let renderW, renderH;
-
-    if (renderWidth > canvasWidth) {
-        renderW = renderWidth;
-    } else {
-        renderW = canvasWidth;
-    }
-
-    renderH = canvasHeight;
-
-    let renderer = new THREE.WebGLRenderer({
-        antialias: false
-    });
-
-
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x23272A, 1.0);
-    renderer.setSize(renderW, renderH);
-    parent.appendChild(renderer.domElement);
-
-    let loader = new THREE.TextureLoader();
-    loader.crossOrigin = "anonymous";
-
-    images.forEach(img => {
-
-        image = loader.load(img.getAttribute('src') + '?v=' + Date.now());
-        image.magFilter = image.minFilter = THREE.LinearFilter;
-        image.anisotropy = renderer.capabilities.getMaxAnisotropy();
-        sliderImages.push(image);
-
-    });
-
-    let scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x23272A);
-    let camera = new THREE.OrthographicCamera(
-        renderWidth / -2,
-        renderWidth / 2,
-        renderHeight / 2,
-        renderHeight / -2,
-        1,
-        1000);
-
-
-    camera.position.z = 1;
-
-    let mat = new THREE.ShaderMaterial({
-        uniforms: {
-            dispFactor: { type: "f", value: 0.0 },
-            currentImage: { type: "t", value: sliderImages[0] },
-            nextImage: { type: "t", value: sliderImages[1] }
-        },
-
-        vertexShader: vertex,
-        fragmentShader: fragment,
-        transparent: true,
-        opacity: 1.0
-    });
-
-
-    let geometry = new THREE.PlaneBufferGeometry(
-        parent.offsetWidth,
-        parent.offsetHeight,
-        1);
-
-    let object = new THREE.Mesh(geometry, mat);
-    object.position.set(0, 0, 0);
-    scene.add(object);
-
-    let addEvents = function() {
-
-        let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
-        let isAnimating = false;
-
-        pagButtons.forEach(el => {
-
-            el.addEventListener('click', function() {
-
-                if (!isAnimating) {
-
-                    isAnimating = true;
-
-                    document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
-                    this.className = 'active';
-
-                    let slideId = parseInt(this.dataset.slide, 10);
-
-                    mat.uniforms.nextImage.value = sliderImages[slideId];
-                    mat.uniforms.nextImage.needsUpdate = true;
-
-                    TweenLite.to(mat.uniforms.dispFactor, 1, {
-                        value: 1,
-                        ease: 'Expo.easeInOut',
-                        onComplete: function() {
-                            mat.uniforms.currentImage.value = sliderImages[slideId];
-                            mat.uniforms.currentImage.needsUpdate = true;
-                            mat.uniforms.dispFactor.value = 0.0;
-                            isAnimating = false;
-                        }
-                    });
-
-
-                    let slideTitleEl = document.getElementById('slide-title');
-                    let slideStatusEl = document.getElementById('slide-status');
-                    let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0].innerHTML;
-                    let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0].innerHTML;
-
-                    TweenLite.fromTo(slideTitleEl, 0.5, {
-                            autoAlpha: 1,
-                            filter: 'blur(0px)',
-                            y: 0
-                        },
-
-                        {
-                            autoAlpha: 0,
-                            filter: 'blur(10px)',
-                            y: 20,
-                            ease: 'Expo.easeIn',
-                            onComplete: function() {
-                                slideTitleEl.innerHTML = nextSlideTitle;
-
-                                TweenLite.to(slideTitleEl, 0.5, {
-                                    autoAlpha: 1,
-                                    filter: 'blur(0px)',
-                                    y: 0
-                                });
-
-                            }
-                        });
-
-
-                    TweenLite.fromTo(slideStatusEl, 0.5, {
-                            autoAlpha: 1,
-                            filter: 'blur(0px)',
-                            y: 0
-                        },
-
-                        {
-                            autoAlpha: 0,
-                            filter: 'blur(10px)',
-                            y: 20,
-                            ease: 'Expo.easeIn',
-                            onComplete: function() {
-                                slideStatusEl.innerHTML = nextSlideStatus;
-
-                                TweenLite.to(slideStatusEl, 0.5, {
-                                    autoAlpha: 1,
-                                    filter: 'blur(0px)',
-                                    y: 0,
-                                    delay: 0.1
-                                });
-
-                            }
-                        });
-
-
-                }
-
-            });
-
+    newSlide.addClass('is-new');
+    var timeout = slideshow.data('timeout');
+    clearTimeout(timeout);
+    slideshow.data('wait', true);
+    var transition = slideshow.attr('data-transition');
+    if (transition == 'fade') {
+        newSlide.css({
+            display: 'block',
+            zIndex: 2
+        });
+        newSlideImage.css({
+            opacity: 0
         });
 
-    };
+        TweenMax.to(newSlideImage, 1, {
+            alpha: 1,
+            onComplete: function() {
+                newSlide.addClass('is-active').removeClass('is-new');
+                activeSlide.removeClass('is-active');
+                newSlide.css({ display: '', zIndex: '' });
+                newSlideImage.css({ opacity: '' });
+                slideshow.find('.pagination').trigger('check');
+                slideshow.data('wait', false);
+                if (auto) {
+                    timeout = setTimeout(function() {
+                        slideshowNext(slideshow, false, true);
+                    }, slideshowDuration);
+                    slideshow.data('timeout', timeout);
+                }
+            }
+        });
+    } else {
+        if (newSlide.index() > activeSlide.index()) {
+            var newSlideRight = 0;
+            var newSlideLeft = 'auto';
+            var newSlideImageRight = -slideshow.width() / 8;
+            var newSlideImageLeft = 'auto';
+            var newSlideImageToRight = 0;
+            var newSlideImageToLeft = 'auto';
+            var newSlideContentLeft = 'auto';
+            var newSlideContentRight = 0;
+            var activeSlideImageLeft = -slideshow.width() / 4;
+        } else {
+            var newSlideRight = '';
+            var newSlideLeft = 0;
+            var newSlideImageRight = 'auto';
+            var newSlideImageLeft = -slideshow.width() / 8;
+            var newSlideImageToRight = '';
+            var newSlideImageToLeft = 0;
+            var newSlideContentLeft = 0;
+            var newSlideContentRight = 'auto';
+            var activeSlideImageLeft = slideshow.width() / 4;
+        }
 
-    addEvents();
+        newSlide.css({
+            display: 'block',
+            width: 0,
+            right: newSlideRight,
+            left: newSlideLeft,
+            zIndex: 2
+        });
 
-    window.addEventListener('resize', function(e) {
-        renderer.setSize(renderW, renderH);
+        newSlideImage.css({
+            width: slideshow.width(),
+            right: newSlideImageRight,
+            left: newSlideImageLeft
+        });
+
+        newSlideContent.css({
+            width: slideshow.width(),
+            left: newSlideContentLeft,
+            right: newSlideContentRight
+        });
+
+        activeSlideImage.css({
+            left: 0
+        });
+
+        TweenMax.set(newSlideElements, { y: 20, force3D: true });
+        TweenMax.to(activeSlideImage, 1, {
+            left: activeSlideImageLeft,
+            ease: Power3.easeInOut
+        });
+
+        TweenMax.to(newSlide, 1, {
+            width: slideshow.width(),
+            ease: Power3.easeInOut
+        });
+
+        TweenMax.to(newSlideImage, 1, {
+            right: newSlideImageToRight,
+            left: newSlideImageToLeft,
+            ease: Power3.easeInOut
+        });
+
+        TweenMax.staggerFromTo(newSlideElements, 0.8, { alpha: 0, y: 60 }, { alpha: 1, y: 0, ease: Power3.easeOut, force3D: true, delay: 0.6 }, 0.1, function() {
+            newSlide.addClass('is-active').removeClass('is-new');
+            activeSlide.removeClass('is-active');
+            newSlide.css({
+                display: '',
+                width: '',
+                left: '',
+                zIndex: ''
+            });
+
+            newSlideImage.css({
+                width: '',
+                right: '',
+                left: ''
+            });
+
+            newSlideContent.css({
+                width: '',
+                left: ''
+            });
+
+            newSlideElements.css({
+                opacity: '',
+                transform: ''
+            });
+
+            activeSlideImage.css({
+                left: ''
+            });
+
+            slideshow.find('.pagination').trigger('check');
+            slideshow.data('wait', false);
+            if (auto) {
+                timeout = setTimeout(function() {
+                    slideshowNext(slideshow, false, true);
+                }, slideshowDuration);
+                slideshow.data('timeout', timeout);
+            }
+        });
+    }
+}
+
+function slideshowNext(slideshow, previous, auto) {
+    var slides = slideshow.find('.slide');
+    var activeSlide = slides.filter('.is-active');
+    var newSlide = null;
+    if (previous) {
+        newSlide = activeSlide.prev('.slide');
+        if (newSlide.length === 0) {
+            newSlide = slides.last();
+        }
+    } else {
+        newSlide = activeSlide.next('.slide');
+        if (newSlide.length == 0)
+            newSlide = slides.filter('.slide').first();
+    }
+
+    slideshowSwitch(slideshow, newSlide.index(), auto);
+}
+
+function homeSlideshowParallax() {
+    var scrollTop = $(window).scrollTop();
+    if (scrollTop > windowHeight) return;
+    var inner = slideshow.find('.slideshow-inner');
+    var newHeight = windowHeight - (scrollTop / 2);
+    var newTop = scrollTop * 0.8;
+
+    inner.css({
+        transform: 'translateY(' + newTop + 'px)',
+        height: newHeight
+    });
+}
+
+$(document).ready(function() {
+    $('.slide').addClass('is-loaded');
+
+    $('.slideshow .arrows .arrow').on('click', function() {
+        slideshowNext($(this).closest('.slideshow'), $(this).hasClass('prev'));
     });
 
-    let animate = function() {
-        requestAnimationFrame(animate);
-
-        renderer.render(scene, camera);
-    };
-    animate();
-};
-
-imagesLoaded(document.querySelectorAll('img'), () => {
-
-    document.body.classList.remove('loading');
-
-    const el = document.getElementById('slider');
-    const imgs = Array.from(el.querySelectorAll('img'));
-    new displacementSlider({
-        parent: el,
-        images: imgs
+    $('.slideshow .pagination .item').on('click', function() {
+        slideshowSwitch($(this).closest('.slideshow'), $(this).index());
     });
 
+    $('.slideshow .pagination').on('check', function() {
+        var slideshow = $(this).closest('.slideshow');
+        var pages = $(this).find('.item');
+        var index = slideshow.find('.slides .is-active').index();
+        pages.removeClass('is-active');
+        pages.eq(index).addClass('is-active');
+    });
 
+    /* Lazyloading
+    $('.slideshow').each(function(){
+      var slideshow=$(this);
+      var images=slideshow.find('.image').not('.is-loaded');
+      images.on('loaded',function(){
+        var image=$(this);
+        var slide=image.closest('.slide');
+        slide.addClass('is-loaded');
+      });
+    */
+
+    var timeout = setTimeout(function() {
+        slideshowNext(slideshow, false, true);
+    }, slideshowDuration);
+
+    slideshow.data('timeout', timeout);
 });
+
+if ($('.main-content .slideshow').length > 1) {
+    $(window).on('scroll', homeSlideshowParallax);
+}

@@ -1,1007 +1,164 @@
+@charset "UTF-8";
+
 /* 
-コード規約と初期設定 
-*/
 
+sec001_column---1--- 
 
-/* リセットCSS--------------------
----2020/08/13---更新---------------- */
+--------------------*/
 
-html,
-body,
-main,
-section,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video,
-*,
- :after,
- :before {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.sec001-content {
+    max-width: 960px;
+    margin: 70px auto;
 }
 
-
-/*  --------------------------------
-
-1-1.初期設定（タグ）
-
----------------------------------- */
-
-html {
-    font-size: 1.05vw;
-    /* 可変対応14px */
-    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-    scroll-behavior: smooth;
-    /* スクロールをスムーズに */
-}
-
-body {
-    overflow-x: hidden;
-    /* サイドバー非表示 */
-    -ms-overflow-style: none;
-    /* IE, Edge 対応 */
-    scrollbar-width: none;
-    /* Firefox 対応 */
-}
-
-body::-webkit-scrollbar {
-    /* Chrome, Safari 対応 */
-    display: none;
-}
-
-
-/* __________見出し__________ */
-
-h1 {
-    font-size: 4.5vw;
-}
-
-h2 {
-    font-size: 3.5vw;
-}
-
-h3 {
-    font-size: 2.8vw;
-}
-
-h4 {
-    font-size: 2.3vw;
-}
-
-h5 {
-    font-size: 1.8vw;
-}
-
-h6 {
-    font-size: 1.3vw;
-}
-
-
-/* __________テーブル__________ */
-
-table {
-    border-collapse: collapse;
-    /* ボーダー線は重ねる */
-    table-layout: fixed;
-    /* 列幅を固定レイアウトにする */
-}
-
-
-/* ___________リンク__________ */
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-
-/*  --------------------------------
-
-1-2.初期設定（コンテンツ＆ポジション）
-
----------------------------------- */
-
-
-/* __________コンテンツ__________ */
-
-.D-block {
-    display: block;
-    /* div.pul.h1~6は基本これ初期値＿縦並び*/
-}
-
-.D-inblock {
-    display: inline-block;
-    /* 上と下の要素の中間＿横並び*/
-}
-
-.D-inline {
-    display: inline;
-    /* a.span.imgは基本これ初期値＿横並び */
-}
-
-.D-none {
-    display: none;
-}
-
-
-/* __________ポジション__________ */
-
-.setMain {
-    position: relative;
-    /* 起点指定 */
-}
-
-.setSub {
-    position: absolute;
-    /* 起点指定-子要素 */
-}
-
-.setFix {
-    position: fixed;
-    /* 固定指定 */
-}
-
-.z9 {
-    z-index: 9;
-}
-
-.z99 {
-    z-index: 99;
-}
-
-.z999 {
-    z-index: 999;
-}
-
-.z9999 {
-    z-index: 9999;
-}
-
-
-/*  --------------------------------
-
-1-3.初期設定（カラー）
-
----------------------------------- */
-
-
-/* __________フォント__________ */
-
-.white-f {
-    color: whitesmoke;
-    /* 白の少し黒 */
-}
-
-.black-f {
-    color: rgb(17, 17, 17);
-    /* 黒の少し白 */
-}
-
-
-/* __________ボーダー__________ */
-
-.white-bd {
-    border: 1px solid whitesmoke;
-    /* 白の少し黒 */
-}
-
-#effects {
-    font-family: sans-serif;
-}
-
-.A-white-bd:after {
-    content: '';
-    display: block;
-    /* ↓文字の長さで可変してください */
-    transform: translateX(17vw) translateY(-2.8vh);
-    -webkit-transform: translateX(17vw) translateY(-2.8vh);
-    height: 1px;
-    background-color: #ecebeb;
-}
-
-.B-white-bd:before {
-    content: '';
-    display: block;
-    /* ↓文字の長さで可変してください */
-    transform: translateX(-35vw) translateY(2.2vh);
-    -webkit-transform: translateX(-35vw) translateY(2.2vh);
-    height: 1px;
-    background-color: #ecebeb;
-}
-
-.black-bd {
-    border: 1px solid rgb(17, 17, 17);
-    /* 黒の少し白 */
-}
-
-.A-black-bd:after {
-    content: '';
-    display: block;
-    /* ↓文字の長さで可変してください */
-    transform: translateX(17vw) translateY(-2.8vh);
-    -webkit-transform: translateX(17vw) translateY(-2.8vh);
-    height: 1px;
-    background-color: rgb(17, 17, 17);
-}
-
-.B-black-bd:before {
-    content: '';
-    display: block;
-    /* ↓文字の長さで可変してください */
-    transform: translateX(-35vw) translateY(2.2vh);
-    -webkit-transform: translateX(-35vw) translateY(2.2vh);
-    height: 1px;
-    background-color: rgb(17, 17, 17);
-}
-
-
-/* __________バックグラウンド__________ */
-
-.white-bg {
-    background-color: whitesmoke;
-    /* 白の少し黒 */
-}
-
-.black-bg {
-    background-color: rgb(17, 17, 17);
-    /* 黒の少し白 */
-}
-
-
-/*  --------------------------------
-
-2-1.コンテンツ定義（レイアウト）
-
----------------------------------- */
-
-
-/* __________基本定義__________ */
-
-.Flex {
-    display: flex;
-}
-
-.Flex_A {
-    display: flex;
-    /* 充てた箇所は基本、横幅指定しない */
-    justify-content: space-around;
-    /* 等間隔-起点 */
-}
-
-.Flex_B {
-    display: flex;
-    /* 充てた箇所は基本、横幅指定しない */
-    justify-content: space-between;
-    /* 外側-起点 */
-}
-
-.Flex_C {
-    display: flex;
-    /* 充てた箇所は基本、横幅指定しない */
-    justify-content: center;
-    /* 中央 */
-}
-
-.Float_L {
-    float: left;
-}
-
-
-/* __________プロパティ（順序）__________ */
-
-.FxRe {
-    flex-direction: row-reverse;
-    /* Flex X軸 Reverse */
-}
-
-.Fy {
-    flex-direction: column;
-    /* Flex Y軸 */
-}
-
-.FyRe {
-    flex-direction: column-reverse;
-    /* Flex Y軸 Reverse */
-}
-
-
-/* __________プロパティ（コンテンツ位置）__________ */
-
-.item_S {
-    align-items: flex-start;
-    /* Flex内 コンテンツ 始め位置 */
-}
-
-.item_C {
-    align-items: center;
-    /* Flex内 コンテンツ 中央位置 */
-}
-
-.item_E {
-    align-items: flex-end;
-    /* Flex内 コンテンツ 終わり位置 */
-}
-
-
-/* __________プロパティ（テキスト位置）__________ */
-
-.tCenter {
+.sec001-in {
     text-align: center;
-    /* 基本親要素に付けて＿中央 */
 }
 
-.tLeft {
-    text-align: left;
-    /* 基本親要素に付けて＿左 */
+.sec001-in h1 {
+    position: relative;
 }
 
-.tRight {
-    text-align: right;
-    /* 基本親要素に付けて＿右 */
+.sec001-in h1::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: rgb(211, 211, 211);
+    position: absolute;
+    top: 180%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.vCenter {
-    vertical-align: middle;
-    /* 基本親要素に付けて＿コンテンツ中央 */
+.sec001-in p {
+    margin: 20px 0;
 }
 
-.vTop {
-    vertical-align: text-top;
-    /* 基本親要素に付けて＿コンテンツ上 */
-}
-
-.vBottow {
-    vertical-align: text-bottom;
-    /* 基本親要素に付けて＿コンテンツ下 */
-}
-
-
-/*  --------------------------------
-
-2-2.コンテンツ定義（横幅）
-
----------------------------------- */
-
-
-/* __________単独カラム__________ */
-
-.Max_x {
-    width: 100vw;
-    /* 1カラム--幅100%*/
-}
-
-.Venti_x {
-    width: 96vw;
-    /* 1カラム--幅96%*/
-}
-
-.Grande_x {
-    width: 88vw;
-    /* 1カラム--幅88%*/
-}
-
-.Tall_x {
-    width: 78vw;
-    /* 1カラム--幅78%*/
-}
-
-
-/* __________複数カラム__________ */
-
-.colum2_x {
-    width: 50vw;
-    /* 2カラム--幅50%*2 */
-}
-
-.colum3_x {
-    width: 33vw;
-    /* 3カラム--幅33%*3 */
-}
-
-.colum4_x {
-    width: 25vw;
-    /* 4カラム--幅25%*4 */
-}
-
-.colum5_x {
-    width: 20vw;
-    /* 5カラム--幅20%*5 */
-}
-
-.colum6_x {
-    width: 16.5vw;
-    /* 6カラム--幅16.5%*6 */
-}
-
-
-/*  --------------------------------
-
-2-3.コンテンツ定義（高さ）
-
----------------------------------- */
-
-
-/* __________単独カラム__________ */
-
-.Max_y {
-    width: 100vh;
-    /* 1カラム--高100% */
-}
-
-.Venti_y {
-    width: 96vh;
-    /* 1カラム--高96% */
-}
-
-.Grande_y {
-    width: 88vh;
-    /* 1カラム--高88% */
-}
-
-.Tall_y {
-    width: 78vh;
-    /* 1カラム--高78% */
-}
-
-
-/* __________複数カラム__________ */
-
-.colum2_y {
-    width: 50vh;
-    /* 2カラム--高50%*2 */
-}
-
-.colum3_y {
-    width: 33vh;
-    /* 3カラム--高33%*3 */
-}
-
-.colum4_y {
-    width: 25vh;
-    /* 4カラム--高25%*4 */
-}
-
-.colum5_y {
-    width: 20vh;
-    /* 5カラム--高20%*5 */
-}
-
-.colum6_y {
-    width: 16.5vh;
-    /* 6カラム--高16.5%*6 */
-}
-
-
-/*  --------------------------------
-
-2-4.コンテンツ定義（配置位置）
-
----------------------------------- */
-
-
-/* __________TOPポジション__________ */
-
-.T-0 {
-    top: 0;
-    /* 上から--0％位置*/
-}
-
-.T-5 {
-    top: 5vh;
-    /* 上から--5％位置*/
-}
-
-.T-10 {
-    top: 10vh;
-    /* 上から--10％位置*/
-}
-
-.T-20 {
-    top: 20vh;
-    /* 上から--20％位置*/
-}
-
-
-/* __________BOTTOMポジション__________ */
-
-.B-0 {
-    bottom: 0;
-    /* 下から--0％位置*/
-}
-
-.B-5 {
-    bottom: 5vh;
-    /* 下から--5％位置*/
-}
-
-.B-10 {
-    bottom: 10vh;
-    /* 下から--10％位置*/
-}
-
-.B-20 {
-    bottom: 20vh;
-    /* 下から--20％位置*/
-}
-
-
-/* __________LEFTポジション__________ */
-
-.L-0 {
-    top: 0;
-    /* 左から--0％位置*/
-}
-
-.L-5 {
-    top: 5vh;
-    /* 左から--5％位置*/
-}
-
-.L-10 {
-    top: 10vh;
-    /* 左から--10％位置*/
-}
-
-.L-20 {
-    top: 20vh;
-    /* 左から--20％位置*/
-}
-
-
-/* __________RIGHTポジション__________ */
-
-.R-0 {
-    bottom: 0;
-    /* 右から--0％位置*/
-}
-
-.R-5 {
-    bottom: 5vh;
-    /* 右から--5％位置*/
-}
-
-.R-10 {
-    bottom: 10vh;
-    /* 右から--10％位置*/
-}
-
-.R-20 {
-    bottom: 20vh;
-    /* 右から--20％位置*/
-}
-
-
-/*  --------------------------------
-
-3-1.余白定義（マージン）
-
----------------------------------- */
-
-
-/* __________マージン左右__________ */
-
-.mLR_Auto {
-    margin: 0 auto;
-    /* マージン--左右--中央 */
-}
-
-.mLR_1x {
-    margin: 0 1vw;
-    /* マージン--左右--1% */
-}
-
-.mLR_3x {
-    margin: 0 3vw;
-    /* マージン--左右--3% */
-}
-
-.mLR_5x {
-    margin: 0 5vw;
-    /* マージン--左右--5% */
-}
-
-.mLR_10x {
-    margin: 0 10vw;
-    /* マージン--左右--10% */
-}
-
-
-/* __________マージン左__________ */
-
-.mL_Auto {
-    margin-left: auto;
-    /* マージン--左--Auto */
-}
-
-.mL_1x {
-    margin-left: 1vw;
-    /* マージン--左--1% */
-}
-
-.mL_3x {
-    margin-left: 3vw;
-    /* マージン--左--3% */
-}
-
-.mL_5x {
-    margin-left: 5vw;
-    /* マージン--左--5% */
-}
-
-.mL_10x {
-    margin-left: 10vw;
-    /* マージン--左--10% */
-}
-
-
-/* __________マージン右__________ */
-
-.mR_Auto {
-    margin-right: auto;
-    /* マージン--右--Auto */
-}
-
-.mR_1x {
-    margin-right: 1vw;
-    /* マージン--右--1% */
-}
-
-.mR_3x {
-    margin-right: 3vw;
-    /* マージン--右--3% */
-}
-
-.mR_5x {
-    margin-right: 5vw;
-    /* マージン--右--5% */
-}
-
-.mR_10x {
-    margin-right: 10vw;
-    /* マージン--右--10% */
-}
-
-
-/* __________マージン上下__________ */
-
-.mTB_Auto {
-    margin: auto 0;
-    /* マージン--上下--中央 */
-}
-
-.mTB_1y {
-    margin: 1vh 0;
-    /* マージン--上下--1% */
-}
-
-.mTB_3y {
-    margin: 3vh 0;
-    /* マージン--上下--3% */
-}
-
-.mTB_5y {
-    margin: 5vh 0;
-    /* マージン--上下--5% */
-}
-
-.mTB_10y {
-    margin: 10vh 0;
-    /* マージン--上下--10% */
-}
-
-
-/* __________マージン上__________ */
-
-.mT_Auto {
-    margin-top: auto;
-    /* マージン--上--Auto */
-}
-
-.mT_1y {
-    margin-top: 1vh;
-    /* マージン--上--1% */
-}
-
-.mT_3y {
-    margin-top: 3vh;
-    /* マージン--上--3% */
-}
-
-.mT_5y {
-    margin-top: 5vh;
-    /* マージン--上--5% */
-}
-
-.mT_10y {
-    margin-top: 10vh;
-    /* マージン--上--10% */
-}
-
-
-/* __________マージン下__________ */
-
-.mB_Auto {
-    margin-bottom: auto;
-    /* マージン--下--Auto */
-}
-
-.mB_1y {
-    margin-bottom: 1vh;
-    /* マージン--下--1% */
-}
-
-.mB_3y {
-    margin-bottom: 3vh;
-    /* マージン--下--3% */
-}
-
-.mB_5y {
-    margin-bottom: 5vh;
-    /* マージン--下--5% */
-}
-
-.mB_10y {
-    margin-bottom: 10vh;
-    /* マージン--下--10% */
-}
-
-
-/*  --------------------------------
-
-3-2.余白定義（パディング）
-
----------------------------------- */
-
-
-/* __________パディング左右__________ */
-
-.pLR_Auto {
-    padding: 0 auto;
-    /* パディング--左右--中央 */
-}
-
-.pLR_1x {
-    padding: 0 1vw;
-    /* パディング--左右--1% */
-}
-
-.pLR_3x {
-    padding: 0 3vw;
-    /* パディング--左右--3% */
-}
-
-.pLR_5x {
-    padding: 0 5vw;
-    /* パディング--左右--5% */
-}
-
-.pLR_10x {
-    padding: 0 10vw;
-    /* パディング--左右--10% */
-}
-
-
-/* __________パディング左__________ */
-
-.pL_Auto {
-    padding-left: auto;
-    /* パディング--左--Auto */
-}
-
-.pL_1x {
-    padding-left: 1vw;
-    /* パディング--左--1% */
-}
-
-.pL_3x {
-    padding-left: 3vw;
-    /* パディング--左--3% */
-}
-
-.pL_5x {
-    padding-left: 5vw;
-    /* パディング--左--5% */
-}
-
-.pL_10x {
-    padding-left: 10vw;
-    /* パディング--左--10% */
-}
-
-
-/* __________パディング右__________ */
-
-.pR_Auto {
-    padding-right: auto;
-    /* パディング--右--Auto */
-}
-
-.pR_1x {
-    padding-right: 1vw;
-    /* パディング--右--1% */
-}
-
-.pR_3x {
-    padding-right: 3vw;
-    /* パディング--右--3% */
-}
-
-.pR_5x {
-    padding-right: 5vw;
-    /* パディング--右--5% */
-}
-
-.pR_10x {
-    padding-right: 10vw;
-    /* パディング--右--10% */
-}
-
-
-/* __________パディング上下__________ */
-
-.pTB_Auto {
-    padding: 0 auto;
-    /* パディング--上下--中央 */
-}
-
-.pTB_1x {
-    padding: 0 1vh;
-    /* パディング--上下--1% */
-}
-
-.pTB_3x {
-    padding: 0 3vh;
-    /* パディング--上下--3% */
-}
-
-.pTB_5x {
-    padding: 0 5vh;
-    /* パディング--上下--5% */
-}
-
-.pTB_10x {
-    padding: 0 10vh;
-    /* パディング--上下--10% */
-}
-
-
-/* __________パディング上__________ */
-
-.pT_Auto {
-    padding-top: auto;
-    /* パディング--上--Auto */
-}
-
-.pT_1y {
-    padding-top: 1vh;
-    /* パディング--上--1% */
-}
-
-.pT_3y {
-    padding-top: 3vh;
-    /* パディング--上--3% */
-}
-
-.pT_5y {
-    padding-top: 5vh;
-    /* パディング--上--5% */
-}
-
-.pT_10y {
-    padding-top: 10vh;
-    /* パディング--上--10% */
-}
-
-
-/* __________パディング下__________ */
-
-.pB_Auto {
-    padding-bottom: auto;
-    /* パディング--下--Auto */
-}
-
-.pB_1y {
-    padding-bottom: 1vh;
-    /* パディング--下--1% */
-}
-
-.pB_3y {
-    padding-bottom: 3vh;
-    /* パディング--下--3% */
-}
-
-.pB_5y {
-    padding-bottom: 5vh;
-    /* パディング--下--5% */
-}
-
-.pB_10y {
-    padding-bottom: 10vh;
-    /* パディング--下--10% */
-}
-
-
-/* mv */
-
-.mv {
+.sec001-in .img {
+    content: "";
+    background: url(../img/1440x880-main-001.jpg) no-repeat center center/cover;
+    background-color: rgb(134, 134, 134);
+    background-blend-mode: multiply;
     width: 100%;
-    background: #e64949;
-    height: 100vh;
+    height: 500px;
+    margin-top: 90px;
+    position: relative;
+}
+
+.sec001-in .img .img-in {
+    background: rgba(143, 140, 140, 0.747);
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    line-height: 3;
+}
+
+.sec001-in .img .img-in a {
+    font-size: 30px;
+    color: #f9f9f9;
+    font-weight: 600;
+}
+
+.sec001-in .img .img-in a:hover {
+    transition: 1s;
+    color: rgb(243, 235, 164);
+}
+
+.sec001-in time {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    color: rgb(165, 165, 165);
 }
 
 
-/* sec.001 */
+/* 
+
+sec002_column---2--- 
+
+--------------------*/
+
+.sec002-content {
+    max-width: 1160px;
+    margin: 70px auto;
+    box-shadow: 0 0 black;
+}
+
+.sec002-content .flex {
+    display: flex;
+}
+
+.sec002-in {
+    text-align: center;
+}
+
+.sec002-in h1 {
+    position: relative;
+}
+
+.sec002-in h1::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: rgb(211, 211, 211);
+    position: absolute;
+    top: 180%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sec002-in p {
+    margin: 20px 0;
+}
+
+.sec002-in .img {
+    content: "";
+    background: url(../img/1440x880-main-001.jpg) no-repeat center center/cover;
+    background-color: rgb(134, 134, 134);
+    background-blend-mode: multiply;
+    width: 100%;
+    height: 500px;
+    margin-top: 90px;
+    position: relative;
+    box-shadow: 2px 2px black;
+}
+
+.sec002-in .img .img-in {
+    background: rgba(143, 140, 140, 0.747);
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    line-height: 3;
+}
+
+.sec002-in .img .img-in a {
+    font-size: 30px;
+    color: #f9f9f9;
+    font-weight: 600;
+}
+
+.sec002-in .img .img-in a:hover {
+    transition: 1s;
+    color: rgb(243, 235, 164);
+}
+
+.sec002-in time {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    color: rgb(165, 165, 165);
+}
+
+.sec002-in .img-side {
+    content: "";
+    background: white;
+    width: 100%;
+    height: 500px;
+    margin-top: 90px;
+    position: relative;
+    border: solid 2px rgb(230, 230, 230);
+    box-shadow: 2px 2px black;
+    margin-left: 60px;
+}

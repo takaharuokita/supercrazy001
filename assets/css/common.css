@@ -1,0 +1,232 @@
+/* 
+コード規約と初期設定 
+*/
+
+
+/* リセットCSS--------------------
+---2020/08/13---更新---------------- */
+
+html,
+body,
+main,
+section,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+*,
+ :after,
+ :before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*  --------------------------------
+
+1-1.初期設定（タグ）
+
+---------------------------------- */
+
+html {
+    font-size: 1.05vw;
+    /* 可変対応14px */
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    scroll-behavior: smooth;
+    /* スクロールをスムーズに */
+}
+
+body {
+    overflow-x: hidden;
+    /* サイドバー非表示 */
+    -ms-overflow-style: none;
+    /* IE, Edge 対応 */
+    scrollbar-width: none;
+    /* Firefox 対応 */
+}
+
+body::-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
+}
+
+
+/* __________見出し__________ */
+
+h1 {
+    font-size: 4.5vw;
+}
+
+h2 {
+    font-size: 3.5vw;
+}
+
+h3 {
+    font-size: 2.8vw;
+}
+
+h4 {
+    font-size: 2.3vw;
+}
+
+h5 {
+    font-size: 1.8vw;
+}
+
+h6 {
+    font-size: 1.3vw;
+}
+
+
+/* __________テーブル__________ */
+
+table {
+    border-collapse: collapse;
+    /* ボーダー線は重ねる */
+    table-layout: fixed;
+    /* 列幅を固定レイアウトにする */
+}
+
+
+/* ___________リンク__________ */
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+
+/*  --------------------------------
+
+1-2.初期設定（コンテンツ＆ポジション）
+
+---------------------------------- */
+
+
+/* __________コンテンツ__________ */
+
+.D-block {
+    display: block;
+    /* div.pul.h1~6は基本これ初期値＿縦並び*/
+}
+
+.D-inblock {
+    display: inline-block;
+    /* 上と下の要素の中間＿横並び*/
+}
+
+.D-inline {
+    display: inline;
+    /* a.span.imgは基本これ初期値＿横並び */
+}
+
+.D-none {
+    display: none;
+}
+
+
+/* __________ポジション__________ */
+
+.setMain {
+    position: relative;
+    /* 起点指定 */
+}
+
+.setSub {
+    position: absolute;
+    /* 起点指定-子要素 */
+}
+
+.setFix {
+    position: fixed;
+    /* 固定指定 */
+}
+
+.z9 {
+    z-index: 9;
+}
+
+.z99 {
+    z-index: 99;
+}
+
+.z999 {
+    z-index: 999;
+}
+
+.z9999 {
+    z-index: 9999;
+}

@@ -10,10 +10,11 @@
     <link rel="manifest" href="index.html">
     <link rel="alternate" hreflang="ja" href="index.html" />
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/slider.css">
     <link rel="stylesheet" href="assets/css/bg-animation.css">
     <link rel="stylesheet" href="assets/css/decoration.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <!-- close.CSS -->
     <!--polyfill IE対応-->
@@ -37,10 +38,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <!-- close.Font-awesome -->
     <!-- js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="assets/js/animation.js"></script>
     <script src="assets/js/action.js"></script>
@@ -74,574 +72,142 @@
             <a href="#" class="donate-link">Donate</a>
         </div>
     </header>
-
-
-    <main>
-        <div id="slider">
-            <div class="slider-inner">
-                <div id="slider-content">
-                    <div class="meta">Species</div>
-                    <h2 id="slide-title">Amur <br>Leopard</h2>
-                    <span data-slide-title="0">Amur <br>Leopard</span>
-                    <span data-slide-title="1">Asiatic <br>Lion</span>
-                    <span data-slide-title="2">Siberian <br>Tiger</span>
-                    <span data-slide-title="3">Brown <br>Bear</span>
-                    <div class="meta">Statu</div>
-                    <div id="slide-status">Critically Endangered</div>
-                    <span data-slide-status="0">Critically Endangered</span>
-                    <span data-slide-status="1">Endangered</span>
-                    <span data-slide-status="2">Endangered</span>
-                    <span data-slide-status="3">Least Concern</span>
+    <!-- slider-Contents -->
+    <main class="main-content">
+        <section class="slideshow">
+            <div class="slideshow-inner">
+                <div class="slides">
+                    <div class="slide is-active ">
+                        <div class="slide-content">
+                            <div class="caption">
+                                <div class="title">Super Crazy Official</div>
+                                <div class="text">
+                                    <p>Nishimoto Makoto｜Website</p>
+                                </div>
+                                <a href="#" class="btn">
+                                    <span class="btn-inner">Learn More</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="assets/img/1440x880-main-001.jpg" alt="" class="image" />
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="caption">
+                                <div class="title">Super Crazy Official</div>
+                                <div class="text">
+                                    <p>Slide description 2</p>
+                                </div>
+                                <a href="#" class="btn">
+                                    <span class="btn-inner">Learn More</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="assets/img/1440x880-main-002.jpg" alt="" class="image" />
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="caption">
+                                <div class="title">Slide title 3</div>
+                                <div class="text">
+                                    <p>Slide description 3</p>
+                                </div>
+                                <a href="#" class="btn">
+                                    <span class="btn-inner">Learn More</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="assets/img/1440x880-main-003.jpg" alt="" class="image" />
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-content">
+                            <div class="caption">
+                                <div class="title">Slide title 4</div>
+                                <div class="text">
+                                    <p>Slide description 4</p>
+                                </div>
+                                <a href="#" class="btn">
+                                    <span class="btn-inner">Learn More</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="assets/img/1440x880-main-004.jpg" alt="" class="image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination">
+                    <div class="item is-active">
+                        <span class="icon">1</span>
+                    </div>
+                    <div class="item">
+                        <span class="icon">2</span>
+                    </div>
+                    <div class="item">
+                        <span class="icon">3</span>
+                    </div>
+                    <div class="item">
+                        <span class="icon">4</span>
+                    </div>
+                </div>
+                <div class="arrows">
+                    <div class="arrow prev">
+                        <span class="svg svg-arrow-left">
+                  <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+                  <span class="alt sr-only"></span>
+                        </span>
+                    </div>
+                    <div class="arrow next">
+                        <span class="svg svg-arrow-right">
+                  <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+                  <span class="alt sr-only"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
-
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/leopard2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/lion2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/tiger2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
-
-            <div id="pagination">
-                <button class="active" data-slide="0"></button>
-                <button data-slide="1"></button>
-                <button data-slide="2"></button>
-                <button data-slide="3"></button>
-            </div>
-
-        </div>
+        </section>
     </main>
+    <!-- CLOSE.slider-Contents -->
 
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
-
-    <!--  -->
-    <section class="mv">
-        <div class="sec001">
-
+    <!-- sec001_column---1--- -->
+    <section class="sec001-content">
+        <div class="sec001-in ">
+            <h1>NEWS｜ニュース</h1>
+            <div class="img">
+                <div class="img-in">
+                    <a href="aa">○○のお知らせ</a>
+                    <time>2011-12-03</time>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- END.sec001_column---1--- -->
 
-    <div class="a-container">
-        <h1 style="text-align:center;">Material cards FlexBox</h1>
-        <a href="https://codepen.io/pirolab/project/editor/AyBEvm" target="_blank">Angular 2 Version <i class="icon-right"></i></a>
-        <div class="o-card_container">
-            <div class="o-card" id="Nikola_Tesla">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/tesla-bg.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/tesla.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">Nikola Tesla</h2>
-                    <h3 class="o-card_subTitle">The Misunderstood</h3>
-                    <p class="o-card_paragraph">Nikola Tesla (Serbian Cyrillic: Никола Тесла; 10 July 1856 – 7 January 1943) was a Serbian-American inventor, electrical engineer, mechanical engineer, physicist, and futurist who is best known for his contributions to the design of
-                        the modern alternating current (AC) electricity supply system. Born and raised in the Austrian Empire, Tesla received an advanced education in engineering and physics in the 1870s and gained practical experience in the early 1880s
-                        working in ......
-                    </p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="Nikola_Tesla" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-            <div class="o-card" id="Ernest_Hemingway">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/Hemingway_and_Marlins.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/hemingway.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">Ernest Hemingway</h2>
-                    <h3 class="o-card_subTitle">The Brave</h3>
-                    <p class="o-card_paragraph">Ernest Miller Hemingway (July 21, 1899 – July 2, 1961) was an American novelist, short story writer, and journalist. His economical and understated style had a strong influence on 20th-century fiction, while his life of adventure and
-                        his public image influenced later generations. Hemingway produced most of his work between the mid-1920s and the mid-1950s, and won the Nobel Prize in Literature in 1954. He published seven novels, six short story collections,
-                        and two non-fiction works....</p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="Ernest_Hemingway" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-            <div class="o-card" id="J_R_R_Tolkien">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/Argonath1.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/tolkien.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">J. R. R. Tolkien</h2>
-                    <h3 class="o-card_subTitle">The Visionary</h3>
-                    <p class="o-card_paragraph">John Ronald Reuel Tolkien, CBE, FRSL (/ˈtɒlkiːn/;[a] 3 January 1892 – 2 September 1973) was an English writer, poet, philologist, and university professor who is best known as the author of the classic high-fantasy works The Hobbit,
-                        The Lord of the Rings, and The Silmarillion. He served as the Rawlinson and Bosworth Professor of Anglo-Saxon and Fellow of Pembroke College, Oxford, from 1925 to 1945 and Merton Professor of English Language and Literature and
-                        Fellow of Merton College....
-                    </p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="J._R._R._Tolkien" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-            <div class="o-card" id="Malcolm_X">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/Malcolm_X_bullet_holes2.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/malcom-x.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">Malcom X</h2>
-                    <h3 class="o-card_subTitle">The Necessary</h3>
-                    <p class="o-card_paragraph">Malcolm X (/ˈmælkəm ˈɛks/; May 19, 1925 – February 21, 1965), born Malcolm Little and later also known as el-Hajj Malik el-Shabazz[A] (Arabic: الحاجّ مالك الشباز‎‎; Arabic pronunciation: [ɛl-hæʤ ˈmælɪk ɛl-ˈʃɑbɑz]), was an African-American
-                        Muslim minister and human rights activist. To his admirers he was a courageous advocate for the rights of blacks, a man who indicted white America in the harshest terms for its crimes against black Americans; detractors accused
-                        him of preaching racism and violence....</p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="Malcolm_X" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-            <div class="o-card" id="George_Orwell">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/poum.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/g-orwell.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">George Orwell</h2>
-                    <h3 class="o-card_subTitle">The Warrior</h3>
-                    <p class="o-card_paragraph">Eric Arthur Blair (25 June 1903 – 21 January 1950),[1] better known by his pen name George Orwell, was an English novelist, essayist, journalist, and critic. His work is marked by lucid prose, awareness of social injustice, opposition
-                        to totalitarianism, and outspoken support of democratic socialism.[2][3] Orwell wrote literary criticism, poetry, fiction, and polemical journalism. He is best known for the allegorical novella Animal Farm (1945) and the dystopian
-                        novel Nineteen Eighty-Four (1949)....
-                    </p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="George_Orwell" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-            <div class="o-card" id="Albert_Einstein">
-                <div class="o-card_header">
-                    <div class="o-card_headerHeroImg" data-image="https://s3.eu-west-2.amazonaws.com/pirolab/images/einstein-bg.jpg"></div>
-                    <ul class="o-card-headerList">
-                        <li class="o-card-headerList--openIcons ">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-linkedin"></i></a>
-                        </li>
-                        <li class="o-card-headerList--item">
-                            <a class="o-card-headerList--link" href="#"><i class="icon-github"></i></a>
-                        </li>
-                    </ul>
-                    <div class="o-card_logo" style="background:url(https://s3.eu-west-2.amazonaws.com/pirolab/images/einstein.jpg) center no-repeat;"></div>
-                </div>
-                <div class="o-card_body">
-                    <h2 class="o-card_title">Albert Einstein</h2>
-                    <h3 class="o-card_subTitle">The forerunner</h3>
-                    <p class="o-card_paragraph">Albert Einstein (/ˈaɪnstaɪn/;[4] German: [ˈalbɛɐ̯t ˈaɪnʃtaɪn] ( listen); 14 March 1879 – 18 April 1955) was a German-born theoretical physicist. He developed the theory of relativity, one of the two pillars of modern physics (alongside
-                        quantum mechanics).[1][5]:274 Einstein's work is also known for its influence on the philosophy of science.[6][7] Einstein is best known by the general public for his mass–energy equivalence formula E = mc2 (which has been dubbed
-                        "the world's most famous equation")....</p>
-                </div>
-                <div class="o-card_footer">
-                    <a data-href="Albert_Einstein" target="_blank" class="a-readMore" data-modal="#first">Read More <i class="icon-right"></i></a>
-                </div>
-                <div class="o-modal">
-                    <span class="o-modal__close">
-                 <i class="icon-cancel-circled"></i>
-                 </span>
-                    <h2 class="o-modal__title"></h2>
-                    <div class="o-modal__inner"></div>
-                </div>
-                <div class="a-loader">
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                    <div class="a-loader__bar"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- sec002_column---2--- -->
+    <section class="sec002-content">
+        <div class="sec002-in ">
+            <h1>NEWS｜ニュース</h1>
 
-
-    <section class="mv">
-        <div class="sec001">
-
+            <div class="flex">
+                <div class="img">
+                    <div class="img-in">
+                        <a href="aa">○○のお知らせ</a>
+                        <time>2011-12-03</time>
+                    </div>
+                </div>
+                <div class="img-side">
+                    aaaaaaaaaaa
+                </div>
+            </div>
         </div>
     </section>
-    <!--  sec002-->
-
-    <div class="container">
-
-        <div class="card-media">
-            <!-- media container -->
-            <div class="card-media-object-container">
-                <div class="card-media-object" style="background-image: url(https://s9.postimg.cc/y0sfm95gv/prince_f.jpg);"></div>
-                <span class="card-media-object-tag subtle">Selling Fast</span>
-                <ul class="card-media-object-social-list">
-                    <li>
-                        <img src="https://s10.postimg.cc/3rjjbzcvd/profile_f.jpg" class="">
-                    </li>
-                    <li>
-                        <img src="https://s16.postimg.cc/b0j0djh79/profile_0_f.jpg" class="">
-                    </li>
-                    <li class="card-media-object-social-list-item-additional">
-                        <span>+2</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- body container -->
-            <div class="card-media-body">
-                <div class="card-media-body-top">
-                    <span class="subtle">Mon, APR 09, 7:00 PM</span>
-                    <div class="card-media-body-top-icons u-float-right">
-                        <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-                </svg>
-                        <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
-                  <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
-                    </div>
-                </div>
-                <span class="card-media-body-heading">This Thing Called Life: A Celebration of Prince and His Legacy at MEZZANINE SF</span>
-                <div class="card-media-body-supporting-bottom">
-                    <span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>
-                    <span class="card-media-body-supporting-bottom-text subtle u-float-right">Free &ndash; $30</span>
-                </div>
-                <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                    <span class="card-media-body-supporting-bottom-text subtle">#Music #Party</span>
-                    <a href="#/" class="card-media-body-supporting-bottom-text card-media-link u-float-right">VIEW TICKETS</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card-media">
-            <!-- media container -->
-            <div class="card-media-object-container">
-                <div class="card-media-object" style="background-image: url(https://s16.postimg.cc/x8m99xtgl/tyco_f.jpg);"></div>
-                <ul class="card-media-object-social-list">
-                    <li>
-                        <img src="https://s13.postimg.cc/c5aoiq1w7/stock3_f.jpg" class="">
-                    </li>
-                </ul>
-            </div>
-            <!-- body container -->
-            <div class="card-media-body">
-                <div class="card-media-body-top">
-                    <span class="subtle">Mon, APR 09, 7:00 PM</span>
-                    <div class="card-media-body-top-icons u-float-right">
-                        <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-                </svg>
-                        <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
-                  <path d="M0 0h24v24H0z" fill="none"/>
-                </svg>
-                    </div>
-                </div>
-                <span class="card-media-body-heading">DAY // NIGHT - Tycho (Live) w/ Gold Panda, Com Truise + More at 1015 Folsom</span>
-                <div class="card-media-body-supporting-bottom">
-                    <span class="card-media-body-supporting-bottom-text subtle">1015 Folsom, San Francisco, CA</span>
-                    <span class="card-media-body-supporting-bottom-text subtle u-float-right">$25 &ndash; $80</span>
-                </div>
-                <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                    <span class="card-media-body-supporting-bottom-text subtle">#Music #Performance</span>
-                    <a href="#/" class="card-media-body-supporting-bottom-text card-media-link u-float-right">VIEW TICKETS</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <section class="mv">
-        <div class="sec001">
-
-        </div>
-    </section>
-    <!-- sec003 -->
-    <div class="site__wrapper">
-        <div class="grid">
-            <div class="card">
-                <div class="card__image">
-                    <img src="https://unsplash.it/400/608?image=123" alt="">
-
-                    <div class="card__overlay card__overlay--indigo">
-                        <div class="card__overlay-content">
-                            <ul class="card__meta">
-                                <li><a href="#0"><i class="fa fa-tag"></i> Html5/Css3</a></li>
-                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 min ago</a></li>
-                            </ul>
-
-                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
-
-                            <ul class="card__meta card__meta--last">
-                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
-                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="card__image">
-                    <img src="https://unsplash.it/400/300?image=100" alt="">
-
-                    <div class="card__overlay card__overlay--blue">
-                        <div class="card__overlay-content">
-                            <ul class="card__meta">
-                                <li><a href="#0"><i class="fa fa-tag"></i> UI/UX</a></li>
-                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
-                            </ul>
-
-                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
-
-                            <ul class="card__meta card__meta--last">
-                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
-                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="card__image">
-                    <img src="https://unsplash.it/400/300?image=200" alt="">
-
-                    <div class="card__overlay card__overlay--indigo">
-                        <div class="card__overlay-content">
-                            <ul class="card__meta">
-                                <li><a href="#0"><i class="fa fa-tag"></i> UI/UX</a></li>
-                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
-                            </ul>
-
-                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
-
-                            <ul class="card__meta card__meta--last">
-                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
-                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="card__image">
-                    <img src="https://unsplash.it/400/300?image=300" alt="">
-
-                    <div class="card__overlay card__overlay--indigo">
-                        <div class="card__overlay-content">
-                            <ul class="card__meta">
-                                <li><a href="#0"><i class="fa fa-tag"></i> Tutorials</a></li>
-                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
-                            </ul>
-
-                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
-
-                            <ul class="card__meta card__meta--last">
-                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
-                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="card__image">
-                    <img src="https://unsplash.it/400/300?image=400" alt="">
-
-                    <div class="card__overlay card__overlay--blue">
-                        <div class="card__overlay-content">
-                            <ul class="card__meta">
-                                <li><a href="#0"><i class="fa fa-tag"></i> Tutorials</a></li>
-                                <li><a href="#0"><i class="fa fa-clock-o"></i> 2 days ago</a></li>
-                            </ul>
-
-                            <a href="#0" class="card__title">How to create a card based article with HTML5 &amp; CSS3</a>
-
-                            <ul class="card__meta card__meta--last">
-                                <li><a href="#0"><i class="fa fa-user"></i> Mithicher</a></li>
-                                <li><a href="#0"><i class="fa fa-facebook-square"></i> Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="site__info">
-            <p>Placeholder images are served from <a target="_blank" href="https://unsplash.it">www.unsplash.it</a></p>
-            <p>Handcrafted by <a target="_blank" href="https://mithicher.github.io">Mithicher</a>. Tweet me on <a target="_blank" href="https://twitter.com/mithicher">Twitter</a></p>
-        </div>
-    </div>
-    <!-- @end site__wrapper -->
-
-
-    <!--  -->
+    <!-- END.sec002_column---2--- -->
 
 </body>
 
